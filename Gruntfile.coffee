@@ -1,6 +1,6 @@
 ###
-# grunt-svg2storeicons
-# https://github.com/PEM/grunt-svg2storeicons
+# grunt-phonegapsplash
+# https://github.com/PEM/grunt-phonegapsplash
 #
 # Copyright (c) 2013 Pierre-Eric Marchandet (PEM-- <pemarchandet@gmail.com>)
 # Licensed under the MIT license.
@@ -32,14 +32,14 @@ module.exports = (grunt) ->
       tests: ["tmp"]
     
     # Configuration to be run (and then tested).
-    svg2storeicons:
-      # Test icon creation for all profiles
+    phonegapsplash:
+      # Test splashscreen creation for all layouts for all mobiles
       default_options:
-        src: 'test/fixtures/icon.svg'
+        src: 'test/fixtures/splash.png'
         dest: 'tmp/default_options'
-      # Test icon creation for a single
+      # Test splashscreen creation for a single layout and one mobile
       reduced_set:
-        src: 'test/fixtures/icon.svg'
+        src: 'test/fixtures/splash.png'
         dest: 'tmp/reduced_set'
         options:
           profiles: ['blackberry']
@@ -59,7 +59,7 @@ module.exports = (grunt) ->
   # plugin's task(s), then test the result.
   grunt.registerTask 'test', [
     'clean'
-    'svg2storeicons'
+    'phonegapsplash'
     'mochaTest'
   ]
   
