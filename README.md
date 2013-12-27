@@ -14,7 +14,7 @@ Create [PhoneGap](http://phonegap.com/) splashscreens from a single PNG file.
 0. Ensure that the splashscreen is visible in portrait and in landscape mode. _The provided canevas has 2 layers that display the portrait and landscape limits._
 0. Disable the layers that you don't want to see. __Layer management keyboard access is SHIFT+CTRL+L.__
 0. Export your SVG as a PNG using SHIFT+CTRL+E.
-0. Use Grunt and this plugin to produce all your required [PhoneGap] splashcreens.
+0. Use Grunt and this plugin to produce all your required [PhoneGap](http://phonegap.com/) splashcreens.
 
 ## Getting Started
 ### GraphicsMagick
@@ -61,7 +61,7 @@ grunt.initConfig({
       options: {
         // A list of layouts, it produces landscape and portrait if not specified
         layouts: ['landscape'],
-        // A  list of phone targets, it produces android, bada, blackberry, ios, tizen, webos, windows-phone if not specified
+        // A  list of phone targets, it produces android, bada, blackberry, ios, webos, windows-phone if not specified
         profiles: ['windows-phone', 'android']
       }
     },
@@ -78,7 +78,7 @@ Specify the layout mode that you target. The full list is provided as default.
 
 #### options.profiles
 Type: `Array of String`
-Default value: `['android', 'bada', 'blackberry', 'ios', 'tizen', 'webos', 'windows-phone']`
+Default value: `['android', 'bada', 'blackberry', 'ios', 'webos', 'windows-phone']`
 
 Specify the stores that you target. The full list is provided as default. The default target produce a single `icon.png` at the root of the specified destination directory.
 
