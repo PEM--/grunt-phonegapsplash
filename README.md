@@ -9,6 +9,10 @@
 
 Create [PhoneGap](http://phonegap.com/) splashscreens from a single PNG file.
 
+![Build flow](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/flowchart.png "Build flow")
+
+> In bold, the chart represents the user provided options. Normal texts are the generated sub file paths.
+
 ## Basic workflow
 0. Design your splashscreen using the highest resolution in Inkscape (2008x2008). _A [canevas](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/canevas.svg) is provided under the doc directory._
 0. Ensure that the splashscreen is visible in portrait and in landscape mode. _The provided canevas has 2 layers that display the portrait and landscape limits._
@@ -119,7 +123,7 @@ grunt.initConfig({
 The main plugin is written and its tests are written in CoffeeScript. In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/). Feel free to contribute.
 
 ## Release History
-* 0.1.0: 12/27/2013: Initial commit: [PEM--]( https://github.com/PEM-- )
+* 0.1.0: 12/28/2013: Initial commit: [PEM--]( https://github.com/PEM-- )
 
 ## Known issue
 * N/A.
