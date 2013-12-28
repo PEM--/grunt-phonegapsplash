@@ -12,35 +12,46 @@
 gm = require 'gm'
 # Async is used to transform this task as an asynchronous task.
 async = require 'async'
+# Path from NodeJS app is used to merge directory and sub drectories.
+path = require 'path'
+
+# Main splashscreen resolution (a squared PNG)
+RESOLUTION = 2008
 
 ###
-# All profiles for every splashscreens covered by PhoneGap are stored hereafter.
-# The name of the splashscreens is used as the final name under
-#  rendered splashscreen..
-# The size are the targeted size expected for each splashscreen.
+# All profiles for every splashscreens covered by PhoneGap are stored hereafter
+#  with the following structure:
+#
+#  * platform: A dictionary key representing the OS (the platform)
+#    * dir: The subfolder where are stored the splashscreens
+#    * layout: A dictionary key representing the available layouts
+#      * splashs: An array of the required splashscreens
+#        * name: The name of the splashscreen
+#        * width: The width of the splashscreen
+#        * height: The height of the splascreen
 ###
 PROFILES = {
   # Android
   'android':
-    dir: 'res/icon/android/'
+    dir: 'res/screen/android/'
     layout:
       landscape:
         splashs: [
           { name: 'screen-ldpi-landscape.png', width: 320, height: 200 }
           { name: 'screen-mdpi-landscape.png', width: 480, height: 320 }
           { name: 'screen-hdpi-landscape.png', width: 800, height: 480 }
-          { name: 'screen-hdpi-landscape.png', width: 1280, height: 720 }
+          { name: 'screen-xhdpi-landscape.png', width: 1280, height: 720 }
         ]
       portrait:
         splashs: [
           { name: 'screen-ldpi-portrait.png', width: 200, height: 320 }
           { name: 'screen-mdpi-portrait.png', width: 320, height: 480 }
           { name: 'screen-hdpi-portrait.png', width: 480, height: 800 }
-          { name: 'screen-hdpi-portrait.png', width: 720, height: 1280 }
+          { name: 'screen-xhdpi-portrait.png', width: 720, height: 1280 }
         ]
   # Bada and Bada WAC
   'bada':
-    dir: 'res/icon/bada/'
+    dir: 'res/screen/bada/'
     layout:
       portrait:
         splashs: [
@@ -51,7 +62,7 @@ PROFILES = {
         ]
   # Blackberry
   'blackberry':
-    dir: 'res/icon/blackberry/'
+    dir: 'res/screen/blackberry/'
     layout:
       none:
         splashs: [
@@ -59,7 +70,7 @@ PROFILES = {
         ]
   # iOS (Retina and legacy resolutions)
   'ios':
-    dir: 'res/icon/ios/'
+    dir: 'res/screen/ios/'
     layout:
       landscape:
         splashs: [
@@ -81,7 +92,7 @@ PROFILES = {
         ]
   # WebOS
   'webos':
-    dir: 'res/icon/webos/'
+    dir: 'res/screen/webos/'
     layout:
       none:
         splashs: [
@@ -89,7 +100,7 @@ PROFILES = {
         ]
   # Windows Phone, Tablets and Desktop (Windows 8)
   'windows-phone':
-    dir: 'res/icon/windows-phone/'
+    dir: 'res/screen/windows-phone/'
     layout:
       portrait:
         splashs: [
@@ -102,7 +113,7 @@ module.exports = (grunt) ->
       'Create PhoneGap splashscreens from a single PNG file.', ->
     # Call this function when inner tasks are achieved.
     done = @async()
-    # Default options are set to produce all stores icons.
+    # Default options are set to produce all splashscreens.
     # This setting can be surcharged by user.
     options = @options
       layouts: [ 'portrait', 'landscape', 'none' ]
@@ -119,24 +130,54 @@ module.exports = (grunt) ->
     DEST = @files[0].dest
     grunt.file.mkdir DEST
     # Iterate over each selected profile
-    async.each options.profiles, (profile, nextProfile) ->
-      grunt.log.debug "Profile: #{profile}"
-      # Create a directories for each profile
-      grunt.file.mkdir "#{DEST}/#{PROFILES[profile].dir}"
-      async.each PROFILES[profile].icons, (destIcon, nextIcon) ->
-        # Create the icon in the appropriate directory.
-        # The background icon is transparent.
-        # The density of the SVG is multiply by 4 so that it gets
-        #  antialiased when resized and written to disk.
-        grunt.log.debug "#{SRC} -> ",
-          "#{DEST}/#{PROFILES[profile].dir}/#{destIcon.name}"
-        gm(SRC).
-          background('none').
-          density(destIcon.size*4, destIcon.size*4).
-          resize(destIcon.size, destIcon.size, '!').
-          write "#{DEST}/#{PROFILES[profile].dir}/#{destIcon.name}", (err) ->
-            return nextIcon err if err
-            nextIcon()
+    async.each options.profiles, (optProfile, nextProfile) ->
+      grunt.log.debug "Profile: #{optProfile}"
+      # Avoid undefined profile
+      curProfile = PROFILES[optProfile]
+      return nextProfile() if curProfile is undefined
+      # Iterate over each selected layout
+      async.each options.layouts, (optLayout, nextLayout) ->
+        grunt.log.debug "Layout: #{optLayout}"
+        # Avoid undefined layout
+        curLayout = curProfile.layout[optLayout]
+        return nextLayout() if curLayout is undefined
+        # Create a directories for each profile having the selected layout
+        grunt.file.mkdir path.join DEST, curProfile.dir
+        # Iterate over each splashcreen
+        async.each curLayout.splashs, (splash, nextSplash) ->
+          targetFile = path.join DEST, curProfile.dir, splash.name
+          grunt.log.debug "Creating #{targetFile}"
+          # Adjust cropping variables depending on layout
+          cropX = cropY = cropWidth = cropHeight = 0
+          switch optLayout
+            when 'landscape'
+              cropX = 0
+              cropWidth = RESOLUTION
+              cropHeight = Math.floor splash.height * RESOLUTION / splash.width
+              cropY = Math.floor (RESOLUTION - cropHeight) / 2
+            when 'portrait'
+              cropY = 0
+              cropHeight = RESOLUTION
+              cropWidth = Math.floor splash.width * RESOLUTION / splash.height
+              cropX = Math.floor (RESOLUTION - cropWidth) / 2
+            else
+              cropX = cropY = 362
+              cropWidth = cropHeight = 1280
+          # Create the splashcreen in the appropriate directory.
+          # The source is cropped to fit aspect ratio of target splashcreen
+          #  and resized before written.
+          grunt.log.debug "gm convert " + \
+            "-crop #{cropWidth}x#{cropHeight}+#{cropX}+#{cropY} " + \
+            "-resize #{splash.width}x#{splash.height}! " + \
+            "#{SRC} #{targetFile}"
+          gm(SRC).
+            crop(cropWidth, cropHeight, cropX, cropY).
+            resize(splash.width, splash.height, '!').
+            write targetFile, (err) ->
+              grunt.log.ok "Splashcreen #{targetFile} created."
+              return nextSplash err if err
+              nextSplash()
+        , nextLayout
       , nextProfile
     , (err) ->
       if err
