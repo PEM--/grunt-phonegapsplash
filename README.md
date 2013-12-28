@@ -16,7 +16,7 @@ Create [PhoneGap](http://phonegap.com/) splashscreens from a single PNG file.
 ## Basic workflow
 0. Design your splashscreen using the highest resolution in Inkscape (2008x2008). _A [canevas](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/canevas.svg) is provided under the doc directory._
 0. Ensure that the splashscreen is visible in portrait and in landscape mode. _The provided canevas has layers that display the portrait and landscape limits for each phones._<br>
-[!Canevas](https://raw.github.com/PEM--/grunt-phonegapsplashscreen/master/doc/canevas.png "Canevas")
+![Canevas](https://raw.github.com/PEM--/grunt-phonegapsplashscreen/master/doc/canevas.png "Canevas")
 0. Disable the layers that you don't want to see. _Management of layers is accessed via is SHIFT+CTRL+L._
 0. Adjust your design so that it fits all screens resolutions (i.e. your design is contained within your chosen gray limits).
 0. Export your SVG as a PNG using SHIFT+CTRL+E.
