@@ -78,15 +78,26 @@ grunt.initConfig({
 ### Options
 #### options.layouts
 Type: `Array of String`
-Default value: `['landscape', 'portrait']`
+Default value: `['landscape', 'portrait', 'none']`
 
-Specify the layout mode that you target. The full list is provided as default.
+Specify the layout mode that you target. The full list is provided as default with the following meanings:
+
+* `landscape`: Splashscreen displayed in landscape mode.
+* `portrait`: Splashscreen displayed in portrait mode.
+* `none`: Splascreen for squared screens.
 
 #### options.profiles
 Type: `Array of String`
 Default value: `['android', 'bada', 'blackberry', 'ios', 'webos', 'windows-phone']`
 
-Specify the stores that you target. The full list is provided as default. The default target produce a single `icon.png` at the root of the specified destination directory.
+Specify the stores that you target. The full list is provided as default. The default target produce a single `icon.png` at the root of the specified destination directory with the following meanings:
+
+* `android`: Splashcreen for Android phones and tablets.
+* `bada`: Splashcreens for Bada and Bada-WAC phones.
+* `blackberry`: Splashcreens for Blackberry phones.
+* `ios`: Splascreens for iPod touch, iPhone and iPad in normal and retina resolutions.
+* `webos`: Splashcreens for WebOS (Palm) phones.
+* `windows-phone`: Splashcreens for Windows phones (7 and 8).
 
 > **NOTE**<br>If an unused target is provided, nothing happens. This favors the re-use of already defined targeted OSes (stores or platforms) as find under the [grunt-svg2storeicons](https://npmjs.org/package/grunt-svg2storeicons).
 

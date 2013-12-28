@@ -72,7 +72,10 @@ PROFILES = {
         splashs: [
           { name: 'screen-iphone-portrait.png', width: 320, height: 480 }
           { name: 'screen-iphone-portrait-2x.png', width: 640, height: 960 }
-          { name: 'screen-iphone-portrait-568h-2x.png', width: 640, height: 1136 }
+          {
+            name: 'screen-iphone-portrait-568h-2x.png',
+            width: 640, height: 1136
+          }
           { name: 'screen-ipad-portrait.png', width: 768, height: 1004 }
           { name: 'screen-ipad-portrait-2x.png', width: 1536, height: 2008 }
         ]
@@ -95,16 +98,18 @@ PROFILES = {
 }
 
 module.exports = (grunt) ->
-  grunt.registerMultiTask 'svg2storeicons', \
+  grunt.registerMultiTask 'phonegapsplash', \
       'Create PhoneGap splashscreens from a single PNG file.', ->
     # Call this function when inner tasks are achieved.
     done = @async()
     # Default options are set to produce all stores icons.
     # This setting can be surcharged by user.
-    options = @options profiles: [
-      'default', 'ios', 'android', 'windows-phone'
-      'blackberry', 'webos', 'bada', 'tizen'
-    ] # Check existence of source file
+    options = @options
+      layouts: [ 'portrait', 'landscape', 'none' ]
+      profiles: [
+        'android', 'bada', 'blackberry', 'ios', 'webos', 'windows-phone'
+      ]
+    # Check existence of source file
     return done new Error "Only one source file is allowed: #{@files}" \
       if @files.length isnt 1 or @files[0].orig.src.length isnt 1
     SRC = @files[0].orig.src[0]
