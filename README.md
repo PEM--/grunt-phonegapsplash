@@ -78,6 +78,12 @@ grunt.initConfig({
 ```
 
 ### Options
+#### options.prjName
+Type: `String`
+Default value: `Test`
+
+Specify your project's name. It is mostly used for iOS as the `platforms/ios` directory used for building PhoneGap/Cordova iOS target uses it.
+
 #### options.layouts
 Type: `Array of String`
 Default value: `['landscape', 'portrait', 'none']`

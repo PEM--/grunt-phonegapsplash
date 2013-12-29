@@ -67,21 +67,16 @@ module.exports = (config) ->
     layout:
       landscape:
         splashs: [
-          { name: 'screen-iphone-landscape.png', width: 480, height: 320 }
-          { name: 'screen-iphone-landscape-2x.png', width: 960, height: 640 }
-          { name: 'screen-ipad-landscape.png', width: 1024, height: 783 }
-          { name: 'screen-ipad-landscape-2x.png', width: 2008, height: 1536 }
+          { name: 'Default-Landscape~ipad.png', width: 1024, height: 748 }
+          { name: 'Default-Landscape@2x~ipad.png', width: 2048, height: 1496 }
         ]
       portrait:
         splashs: [
-          { name: 'screen-iphone-portrait.png', width: 320, height: 480 }
-          { name: 'screen-iphone-portrait-2x.png', width: 640, height: 960 }
-          {
-            name: 'screen-iphone-portrait-568h-2x.png',
-            width: 640, height: 1136
-          }
-          { name: 'screen-ipad-portrait.png', width: 768, height: 1004 }
-          { name: 'screen-ipad-portrait-2x.png', width: 1536, height: 2008 }
+          { name: 'Default~iphone.png', width: 320, height: 480 }
+          { name: 'Default@2x~iphone.png', width: 640, height: 960 }
+          { name: 'Default-568h@2x~iphone.png', width: 640, height: 1136 }
+          { name: 'Default-Portrait~ipad.png', width: 768, height: 1004 }
+          { name: 'Default-Portrait@2x~ipad.png', width: 1536, height: 2008 }
         ]
   # WebOS
   'webos':
