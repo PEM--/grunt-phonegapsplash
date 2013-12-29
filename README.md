@@ -9,6 +9,8 @@
 
 Create [PhoneGap](http://phonegap.com/) splashscreens from a single PNG file.
 
+As of 0.3.X, Cordova / PhoneGap have changed their directory and naming conventions so that it fits better the targeted platforms. This plugin is adapted to the new file structure to ease integration. Check former release  0.1.Xif you are still on Cordova / PhoneGap 0.2.X releases.
+
 ![Build flow](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/flowchart.png "Build flow")
 
 > In bold, the chart represents the user provided options. Normal texts are the generated sub file paths.
@@ -136,6 +138,7 @@ grunt.initConfig({
 The main plugin is written and its tests are written in CoffeeScript. In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/). Feel free to contribute.
 
 ## Release History
+* 0.2.0: 12/29/2013: Compatibility with PhoneGap/Cordova 0.3.X: [PEM--](https://github.com/PEM--)
 * 0.1.1: 12/29/2013: Add 'cordova' as package's keywords: [PEM--]( https://github.com/PEM-- )
 * 0.1.0: 12/28/2013: Initial commit: [PEM--]( https://github.com/PEM-- )
 

@@ -1,26 +1,31 @@
+###
+# grunt-phonegapsplash
+# https://github.com/PEM--/grunt-phonegapsplash
+#
+# Copyright (c) 2013 Pierre-Eric Marchandet (PEM-- <pemarchandet@gmail.com>)
+# Licensed under the MIT licence.
+###
+
+'use strict'
+
 assert = require 'assert'
 fs = require 'fs'
+path = require 'path'
 
-describe 'Reduced set', ->
+EXPECTED_DEST = path.join 'tmp', 'default_options'
+PROFILES = (require '../lib/profiles') prjName: 'Test'
+
+EXPECTED_FILES = []
+for keyProfile of PROFILES
+  curProfile = PROFILES[keyProfile]
+  dir = curProfile.dir
+  for keyLayout of curProfile.layout
+    if keyLayout is 'landscape'
+      curLayout = curProfile.layout[keyLayout]
+      for splash in curLayout.splashs
+        EXPECTED_FILES.push path.join EXPECTED_DEST, dir, splash.name
+
+describe 'Reduced layout set', ->
   it 'should only create splashscreens for only one layout (landscape)', ->
-    EXPECTED_FILES= [
-      'tmp/reduced_layout_set/res/screen/android/screen-ldpi-landscape.png'
-      'tmp/reduced_layout_set/res/screen/android/screen-mdpi-landscape.png'
-      'tmp/reduced_layout_set/res/screen/android/screen-hdpi-landscape.png'
-      'tmp/reduced_layout_set/res/screen/android/screen-xhdpi-landscape.png'
-      'tmp/reduced_layout_set/res/screen/ios/screen-iphone-landscape.png'
-      'tmp/reduced_layout_set/res/screen/ios/screen-iphone-landscape-2x.png'
-      'tmp/reduced_layout_set/res/screen/ios/screen-ipad-landscape.png'
-      'tmp/reduced_layout_set/res/screen/ios/screen-ipad-landscape-2x.png'
-    ]
     for file in EXPECTED_FILES
       assert.equal true, (fs.statSync file).isFile()
-    assert.equal 2, (fs.readdirSync 'tmp/reduced_layout_set/res/screen').length
-    assert.equal 4,
-      (fs.readdirSync 'tmp/reduced_layout_set/res/screen/android').length
-    assert.equal 4,
-      (fs.readdirSync 'tmp/reduced_layout_set/res/screen/ios').length
-    assert.equal 'android',
-      (fs.readdirSync 'tmp/reduced_layout_set/res/screen')[0]
-    assert.equal 'ios',
-      (fs.readdirSync 'tmp/reduced_layout_set/res/screen')[1]
