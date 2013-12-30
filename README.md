@@ -16,7 +16,7 @@ As of 0.3.X, Cordova / PhoneGap have changed their directory and naming conventi
 > In bold, the chart represents the user provided options. Normal texts are the generated sub file paths.
 
 ## Basic workflow
-0. Design your splashscreen using the highest resolution in Inkscape (2008x2008). _A [canevas](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/canevas.svg) is provided under the doc directory._
+0. Design your splashscreen using the highest resolution in Inkscape (2048x2048). _A [canevas](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/canevas.svg) is provided under the doc directory._
 0. Ensure that the splashscreen is visible in portrait and in landscape mode. _The provided canevas has layers that display the portrait and landscape limits for each phones._<br>
 ![Canevas](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/canevas.png "Canevas")
 0. Disable the layers that you don't want to see. _Management of layers is accessed via is SHIFT+CTRL+L._
@@ -82,7 +82,7 @@ grunt.initConfig({
 Type: `String`
 Default value: `Test`
 
-Specify your project's name. It is mostly used for iOS as the `platforms/ios` directory used for building PhoneGap/Cordova iOS target uses it.
+Specify your project's name. It is mostly used for iOS as the `platforms/ios` sub directory. PhoneGap/Cordova iOS target uses it when building the application.
 
 #### options.layouts
 Type: `Array of String`

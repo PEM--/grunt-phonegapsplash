@@ -42,9 +42,8 @@ module.exports = (grunt) ->
     SRC = @files[0].orig.src[0]
     return done new Error "Source file '#{SRC}' not found: #{@files}" \
       if not grunt.file.exists SRC
-    # Create the result's folder
+    # Get the result's folder
     DEST = @files[0].dest
-    grunt.file.mkdir DEST
     # Iterate over each selected profile
     async.each options.profiles, (optProfile, nextProfile) ->
       grunt.log.debug "Profile: #{optProfile}"
@@ -57,8 +56,6 @@ module.exports = (grunt) ->
         # Avoid undefined layout
         curLayout = curProfile.layout[optLayout]
         return nextLayout() if curLayout is undefined
-        # Create a directories for each profile having the selected layout
-        grunt.file.mkdir path.join DEST, curProfile.dir
         # Iterate over each splashcreen
         async.each curLayout.splashs, (splash, nextSplash) ->
           targetFile = path.join DEST, curProfile.dir, splash.name
@@ -79,6 +76,9 @@ module.exports = (grunt) ->
             else
               cropX = cropY = OFFSET
               cropWidth = cropHeight = NONE_RESOLUTION
+          # Check if a sub sub path is necessary as Android's splash names
+          #  require a specific sub sub directory.
+          grunt.file.mkdir path.dirname targetFile
           # Create the splashcreen in the appropriate directory.
           # The source is cropped to fit aspect ratio of target splashcreen
           #  and resized before written.

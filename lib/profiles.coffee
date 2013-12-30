@@ -26,21 +26,45 @@ path = require 'path'
 module.exports = (config) ->
   # Android
   'android':
-    dir: path.join 'res', 'screen', 'android'
+    dir: path.join 'platforms', 'android', 'res'
     layout:
       landscape:
         splashs: [
-          { name: 'screen-ldpi-landscape.png', width: 320, height: 200 }
-          { name: 'screen-mdpi-landscape.png', width: 480, height: 320 }
-          { name: 'screen-hdpi-landscape.png', width: 800, height: 480 }
-          { name: 'screen-xhdpi-landscape.png', width: 1280, height: 720 }
+          {
+            name: (path.join 'drawable-land-ldpi', 'screen.png')
+            width: 320, height: 200
+          }
+          {
+            name: (path.join 'drawable-land-mdpi', 'screen.png')
+            width: 480, height: 320
+          }
+          {
+            name: (path.join 'drawable-land-hdpi', 'screen.png')
+            width: 800, height: 480
+          }
+          {
+            name: (path.join 'drawable-land-xhdpi', 'screen.png')
+            width: 1280, height: 720
+          }
         ]
       portrait:
         splashs: [
-          { name: 'screen-ldpi-portrait.png', width: 200, height: 320 }
-          { name: 'screen-mdpi-portrait.png', width: 320, height: 480 }
-          { name: 'screen-hdpi-portrait.png', width: 480, height: 800 }
-          { name: 'screen-xhdpi-portrait.png', width: 720, height: 1280 }
+          {
+            name: (path.join 'drawable-port-ldpi', 'screen.png')
+            width: 200, height: 320
+          }
+          {
+            name: (path.join 'drawable-port-mdpi', 'screen.png')
+            width: 320, height: 480
+          }
+          {
+            name: (path.join 'drawable-port-hdpi', 'screen.png')
+            width: 480, height: 800
+          }
+          {
+            name: (path.join 'drawable-port-xhdpi', 'screen.png')
+            width: 720, height: 1280
+          }
         ]
   # Bada and Bada WAC
   'bada':
