@@ -9,7 +9,7 @@
 
 Create [PhoneGap](http://phonegap.com/) splashscreens from a single PNG file.
 
-As of 0.3.X, Cordova / PhoneGap have changed their directory and naming conventions so that it fits better the targeted platforms. This plugin is adapted to the new file structure to ease integration. Check former release  0.1.Xif you are still on Cordova / PhoneGap 0.2.X releases.
+As of 0.3.X, Cordova / PhoneGap have changed their directory and naming conventions so that it fits better the targeted platforms. This plugin is adapted to the new file structure to ease integration. Check former release  0.1.X if you are still on Cordova / PhoneGap 0.2.X releases.
 
 ![Build flow](https://raw.github.com/PEM--/grunt-phonegapsplash/master/doc/flowchart.png "Build flow")
 
