@@ -1,6 +1,6 @@
 # grunt-phonegapsplash
 
-[![Available on NPM](https://nodei.co/npm/grunt-phonegapsplash.png?compact=true)](https://npmjs.org/package/grunt-phongapsplash/)
+[![Available on NPM](https://nodei.co/npm/grunt-phonegapsplash.png?compact=true)](https://npmjs.org/package/grunt-phonegapsplash/)
 
 [![Build Status](https://travis-ci.org/PEM--/grunt-phonegapsplash.png?branch=master)](http://travis-ci.org/PEM--/grunt-phonegapsplash)
 [![Dependencies status](https://david-dm.org/PEM--/grunt-phonegapsplash.png)](https://david-dm.org/PEM--/grunt-phonegapsplash)
