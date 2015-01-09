@@ -93,6 +93,7 @@ module.exports = (config) ->
         splashs: [
           { name: 'Default-Landscape~ipad.png', width: 1024, height: 748 }
           { name: 'Default-Landscape@2x~ipad.png', width: 2048, height: 1496 }
+          { name: 'Default-Landscape-736h.png', width: 2208, height: 1242 }
         ]
       portrait:
         splashs: [
@@ -101,6 +102,8 @@ module.exports = (config) ->
           { name: 'Default-568h@2x~iphone.png', width: 640, height: 1136 }
           { name: 'Default-Portrait~ipad.png', width: 768, height: 1004 }
           { name: 'Default-Portrait@2x~ipad.png', width: 1536, height: 2008 }
+          { name: 'Default-667h.png', width: 750, height: 1334 }
+          { name: 'Default-736h.png', width: 1242, height: 2208 }
         ]
   # WebOS
   'webos':
