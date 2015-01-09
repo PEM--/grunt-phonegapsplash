@@ -1,0 +1,61 @@
+{
+  "name": "grunt-phonegapsplash",
+  "description": "Create splashscreen from a PNG.",
+  "version": "0.3.0",
+  "homepage": "https://github.com/PEM--/grunt-phonegapsplash",
+  "author": {
+    "name": "Pierre-Eric Marchandet (PEM--)",
+    "email": "pemarchandet@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PEM--/grunt-phonegapsplash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PEM--/grunt-phonegapsplash/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/PEM--/grunt-phonegapsplash/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.coffee",
+  "engines": {
+    "node": ">= 0.10.4"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "matchdep": "~0.3.0",
+    "grunt-coffeelint": "0.0.8",
+    "grunt-mocha-test": "~0.9.0",
+    "coffee-script": "~1.7.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11"
+  },
+  "keywords": [
+    "gruntplugin",
+    "splash",
+    "splashscreen",
+    "screen",
+    "graphicsmagick",
+    "mobile",
+    "tablet",
+    "phonegap",
+    "cordova",
+    "android",
+    "ios",
+    "windows"
+  ],
+  "dependencies": {
+    "gm": "~1.14.2",
+    "async": "~0.2.9"
+  }
+}
