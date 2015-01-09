@@ -86,10 +86,10 @@ module.exports = (grunt) ->
             "-crop #{cropWidth}x#{cropHeight}+#{cropX}+#{cropY} " + \
             "-resize #{splash.width}x#{splash.height}! " + \
             "#{SRC} #{targetFile}"
-          gm(SRC).
-            crop(cropWidth, cropHeight, cropX, cropY).
-            resize(splash.width, splash.height, '!').
-            write targetFile, (err) ->
+          gm(SRC)
+            .crop(cropWidth, cropHeight, cropX, cropY)
+            .resize(splash.width, splash.height, '!')
+            .write targetFile, (err) ->
               grunt.log.ok "Splashcreen #{targetFile} created."
               return nextSplash err if err
               nextSplash()

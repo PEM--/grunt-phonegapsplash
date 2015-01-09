@@ -1,7 +1,7 @@
 {
   "name": "grunt-phonegapsplash",
   "description": "Create splashscreen from a PNG.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/PEM--/grunt-phonegapsplash",
   "author": {
     "name": "Pierre-Eric Marchandet (PEM--)",
