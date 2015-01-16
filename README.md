@@ -144,6 +144,7 @@ grunt.initConfig({
 The main plugin is written and its tests are written in CoffeeScript. In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/). Feel free to contribute.
 
 ## Release History
+* 0.4.X: 01/16/2015: iPad landscape resolution: @Melmer :clap:
 * 0.3.X: 01/09/2015: iPhone6 and iPhone6+ resolutions: @krisrandall :clap:
 * 0.2.1: 05/02/2014: Version bump: @PEM--
 * 0.2.0: 12/29/2013: Compatibility with PhoneGap/Cordova 0.3.X: @PEM--
