@@ -91,8 +91,8 @@ module.exports = (config) ->
     layout:
       landscape:
         splashs: [
-          { name: 'Default-Landscape~ipad.png', width: 1024, height: 748 }
-          { name: 'Default-Landscape@2x~ipad.png', width: 2048, height: 1496 }
+          { name: 'Default-Landscape~ipad.png', width: 1024, height: 768 }
+          { name: 'Default-Landscape@2x~ipad.png', width: 2048, height: 1536 }
           { name: 'Default-Landscape-736h.png', width: 2208, height: 1242 }
         ]
       portrait:
