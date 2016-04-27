@@ -33,7 +33,8 @@ module.exports = (grunt) ->
       layouts: [ 'portrait', 'landscape', 'none' ]
       profiles: [
         'android', 'bada', 'blackberry', 'ios', 'webos', 'windows-phone'
-      ]
+      ],
+      useXCAssetsPath: false
     # Get all profiles as constants
     PROFILES = (require '../lib/profiles') options
     # Check existence of source file

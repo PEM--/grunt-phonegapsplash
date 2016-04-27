@@ -87,7 +87,10 @@ module.exports = (config) ->
         ]
   # iOS (Retina and legacy resolutions)
   'ios':
-    dir: path.join 'platforms', 'ios', config.prjName, 'Resources', 'splash'
+    dir: if config.useXCAssetsPath
+      path.join 'platforms', 'ios', config.prjName, 'Images.xcassets', 'LaunchImage.launchimage'
+    else
+      path.join 'platforms', 'ios', config.prjName, 'Resources', 'splash'
     layout:
       landscape:
         splashs: [
