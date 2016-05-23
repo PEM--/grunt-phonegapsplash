@@ -26,7 +26,7 @@
     "node": ">= 0.10.4"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "./node_modules/grunt-cli/bin/grunt"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
@@ -38,8 +38,8 @@
     "coffee-script": "^1.10.0"
   },
   "peerDependencies": {
-    "grunt": ">=1.0.0",
-    "grunt-cli": ">=1.2.0"
+    "grunt-cli": ">=1.2.0",
+    "mocha": ">=2.5.1"
   },
   "keywords": [
     "gruntplugin",
