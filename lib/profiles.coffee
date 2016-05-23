@@ -103,8 +103,8 @@ module.exports = (config) ->
           { name: 'Default~iphone.png', width: 320, height: 480 }
           { name: 'Default@2x~iphone.png', width: 640, height: 960 }
           { name: 'Default-568h@2x~iphone.png', width: 640, height: 1136 }
-          { name: 'Default-Portrait~ipad.png', width: 768, height: 1004 }
-          { name: 'Default-Portrait@2x~ipad.png', width: 1536, height: 2008 }
+          { name: 'Default-Portrait~ipad.png', width: 768, height: 1024 }
+          { name: 'Default-Portrait@2x~ipad.png', width: 1536, height: 2048 }
           { name: 'Default-667h.png', width: 750, height: 1334 }
           { name: 'Default-736h.png', width: 1242, height: 2208 }
         ]
