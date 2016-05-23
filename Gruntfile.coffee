@@ -19,13 +19,13 @@ module.exports = (grunt) ->
   # Project configuration.
   grunt.initConfig
     # Lint all CoffeeScript files
-    coffeelint:
-      all: [
-        'Gruntfile.coffee'
-        'tasks/*.coffee'
-        'test/*.coffee'
-      ]
-      options: coffeeLintOptions
+    # coffeelint:
+    #   all: [
+    #     'Gruntfile.coffee'
+    #     'tasks/*.coffee'
+    #     'test/*.coffee'
+    #   ]
+    #   options: coffeeLintOptions
 
     # Before generating any new files, remove any previously-created files.
     clean:
@@ -71,6 +71,6 @@ module.exports = (grunt) ->
 
   # By default, lint and run all tests.
   grunt.registerTask 'default', [
-    'coffeelint'
+    # Broken tasks: 'coffeelint'
     'test'
   ]
